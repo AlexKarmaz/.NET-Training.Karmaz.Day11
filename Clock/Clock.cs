@@ -23,7 +23,7 @@ namespace Task1
         protected virtual void OnFinishCountdown()
         {
             var finishCountdown = FinishCountdown;
-            finishCountdown(this, new EventArgs());
+            finishCountdown?.Invoke(this, new EventArgs());
         }
 
         /// <summary>
