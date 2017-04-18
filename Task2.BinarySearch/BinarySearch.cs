@@ -49,5 +49,32 @@ namespace Task2.BinarySearch
 
             return -1;
         }
-    }  
+
+        /// <summary>
+        /// Finds index of element by using dichotomy method
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array in which the element is searched for</param>
+        /// <param name="value">Seeking element</param>
+        /// <returns>The index of the element to be searched, or if it is not present, returns -1</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static int Search<T>(this T[] array, T value)
+            => Search(array, value, Comparer<T>.Default);
+
+        /// <summary>
+        /// Finds index of element by using dichotomy method
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="array">The array in which the element is searched for</param>
+        /// <param name="value">Seeking element</param>
+        /// <param name="comparer">The IComparer generic interface implementation to use when comparing elements, 
+        /// or null to use the IComparable generic interface implementation of each element</param>
+        /// <returns>The index of the element to be searched, or if it is not present, returns -1</returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ArgumentException"></exception>
+        public static int Search<T>(this T[] array, T value, IComparer<T> comparer)
+            => Search(array, value, comparer.Compare);
+
+    }
 }
